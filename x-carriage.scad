@@ -6,7 +6,7 @@ m3_nut_diameter = 5.3;
 m4_nut_diameter = 4.5; 
 
 // Extruder position
-E_pos = [0, -6, 0];
+E_pos = [0, 6, 0];
 
 // Based on nophead research
 module polyhole(d,h) {
@@ -69,14 +69,14 @@ difference(){
 		}
 
 		//Niceties
-		translate(v = [0, -20, 0]) cylinder(h = 5, r=20, $fn=6, center=false);
+		translate(v = [0, 20, 0]) cylinder(h = 5, r=20, $fn=6, center=false);
 	}
 	union(){
 		//Hotend hole and mounting holes
 		translate(v = E_pos){
 			//Hotend hole
 			cylinder(h = 20, r=20, $fn=18, center=true);
-			translate(v = [-12, 0, -1]) rotate(a=[0,0,30]) cylinder(h = 7, r=12, $fn=6, center=false);
+			translate(v = [12, 0, -1]) rotate(a=[0,0,30]) cylinder(h = 7, r=12, $fn=6, center=false);
 			//Extruder mounting holes
 			rotate(a=[0,0,22]) mountingholes();
 			rotate(a=[0,0,-22]) mountingholes();
@@ -94,7 +94,7 @@ difference(){
 		translate(v = [48, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
 	
 		//Niceties
-		translate(v = [0, 40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
+		translate(v = [0, -40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
 		}
 	}
 }
