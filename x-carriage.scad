@@ -50,16 +50,16 @@ difference(){
 		translate(v = [25, 30, 0])old_style_bushing();
 
 		//Belt clamp arms
-		translate(v = [33-(7.5/2), -18, 2.5]) cube(size = [45-7.5,15,5], center = true);
-		translate(v = [33+45/2-7.5, -18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
-		translate(v = [33-(7.5/2), 18, 2.5]) cube(size = [45-7.5,15,5], center = true);
-		translate(v = [33+45/2-7.5, 18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
+		translate(v = [27-(7.5/2), -18, 2.5]) cube(size = [45-7.5,15,5], center = true);
+		translate(v = [27+45/2-7.5, -18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
+		translate(v = [27-(7.5/2), 18, 2.5]) cube(size = [45-7.5,15,5], center = true);
+		translate(v = [27+45/2-7.5, 18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
 
 		//Belt clamp holes extrusion hex
-		translate(v = [30, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
-		translate(v = [48, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
-		translate(v = [30, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
-		translate(v = [48, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [25, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [43, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [25, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [43, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
 
 		//Extra material for mounting holes  //TODO, theese elements should be hull()'ed in each end
 		translate(v = E_pos){
@@ -84,14 +84,14 @@ difference(){
 		}
 
 		//Belt clamp holes intrusion hex and hole
-		translate(v = [30, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [30, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
-		translate(v = [48, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [48, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
-		translate(v = [30, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [30, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
-		translate(v = [48, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [48, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [25, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [25, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [43, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [43, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [25, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [25, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [43, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [43, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
 	
 		//Niceties
 		translate(v = [0, -40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
