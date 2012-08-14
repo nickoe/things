@@ -93,8 +93,6 @@ difference(){
 		translate(v = [48, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
 		translate(v = [48, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
 	
-
-
 		//Niceties
 		translate(v = [0, 40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
 		}
