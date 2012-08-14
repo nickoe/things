@@ -69,7 +69,7 @@ difference(){
 		}
 
 		//Niceties
-		translate(v = [0, -26, 0]) cylinder(h = 5, r=15, $fn=6, center=false);
+		translate(v = [0, -20, 0]) cylinder(h = 5, r=20, $fn=6, center=false);
 	}
 	union(){
 		//Hotend hole and mounting holes
