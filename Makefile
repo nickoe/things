@@ -2,7 +2,7 @@ SRC=$(shell echo *.scad)
 
 .SUFFIXES: .stl .scad
 
-.scad.stl: ; openscad -s stl/$@ $<
+.scad.stl: ; openscad -o stl/$@ $<
 
 STL_GEN=$(SRC:.scad=.stl)
 
