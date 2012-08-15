@@ -68,6 +68,10 @@ difference(){
 			rotate(a=[0,0,0]) mountingholes_extra();
 		}
 
+		//Fan holder
+		#translate(v = [-26.5, 20, 4.5])  cube(size = [17,10,9], center = true);
+		translate(v = [-26.5, -20, 4.5]) cube(size = [17,10,9], center = true);
+
 		//Niceties
 		translate(v = [0, 20, 0]) cylinder(h = 5, r=20, $fn=6, center=false);
 	}
@@ -93,6 +97,11 @@ difference(){
 		translate(v = [43, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
 		translate(v = [43, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
 	
+
+		//Fan holder holes
+		translate(v = [-28, -20, 4.5]) rotate(a=[0,90,0]) cylinder(h = 20, r=3/2, $fn=10, center=true);
+		translate(v = [-28, 20, 4.5]) rotate(a=[0,90,0]) cylinder(h = 20, r=3/2, $fn=10, center=true);
+
 		//Niceties
 		translate(v = [0, -40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
 		}
