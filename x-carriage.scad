@@ -17,10 +17,8 @@ module polyhole(d,h) {
 
 module mountingholes(){
 	translate(v = [0, -25, -1]) polyhole(m3_diameter,10);
-	translate(v = [0, -25, 4]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=false);
 	//translate(v = [0, -25, 5]) cylinder(h = 9, r=m4_nut_diameter/2, $fn=6, center=true);		
 	translate(v = [0, 25, -1]) polyhole(m3_diameter,10);
-	translate(v = [0, 25, 4]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=false);
 	//translate(v = [0, 25, 5]) cylinder(h = 9, r=4.5, $fn=6, center=true);
 }
 
@@ -61,15 +59,8 @@ difference(){
 		translate(v = [25, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
 		translate(v = [43, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
 
-		//Extra material for mounting holes  //TODO, theese elements should be hull()'ed in each end
-		translate(v = E_pos){
-			rotate(a=[0,0,20]) mountingholes_extra();
-			rotate(a=[0,0,-20]) mountingholes_extra();
-			rotate(a=[0,0,0]) mountingholes_extra();
-		}
-
 		//Fan holder
-		#translate(v = [-26.5, 20, 4.5])  cube(size = [17,10,9], center = true);
+		translate(v = [-26.5, 20, 4.5])  cube(size = [17,10,9], center = true);
 		translate(v = [-26.5, -20, 4.5]) cube(size = [17,10,9], center = true);
 
 		//Niceties
