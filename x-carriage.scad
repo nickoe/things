@@ -6,7 +6,7 @@ m3_nut_diameter = 5.3;
 m4_nut_diameter = 4.5; 
 
 // Extruder position
-E_pos = [0, 6, 0];
+E_pos = [0, -6, 0];
 
 // Based on nophead research
 module polyhole(d,h) {
@@ -35,7 +35,6 @@ module old_style_bushing() {
 }
 
 module xcarriage() {
-
 difference(){
 	union(){
 		//Base block
@@ -48,45 +47,60 @@ difference(){
 		translate(v = [25, 30, 0])old_style_bushing();
 
 		//Belt clamp arms
-		translate(v = [27-(7.5/2), -18, 2.5]) cube(size = [45-7.5,15,5], center = true);
-		translate(v = [27+45/2-7.5, -18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
-		translate(v = [27-(7.5/2), 18, 2.5]) cube(size = [45-7.5,15,5], center = true);
-		translate(v = [27+45/2-7.5, 18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
+		translate(v = [32-(7.5/2), -18, 2.5]) cube(size = [45-7.5,15,5], center = true);
+		translate(v = [32+45/2-7.5, -18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
+		translate(v = [32-(7.5/2), 18, 2.5]) cube(size = [45-7.5,15,5], center = true);
+		translate(v = [32+45/2-7.5, 18, 2.5]) cylinder(h = 5, r=7.5, $fn=18, center=true);
 
 		//Belt clamp holes extrusion hex
-		translate(v = [25, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
-		translate(v = [43, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
-		translate(v = [25, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
-		translate(v = [43, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [30, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [48, -18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [30, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
+		translate(v = [48, 18, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=6, center=true);
 
 		//Fan holder
 		translate(v = [-26.5, 20, 4.5])  cube(size = [17,10,9], center = true);
 		translate(v = [-26.5, -20, 4.5]) cube(size = [17,10,9], center = true);
-
+		
+	translate(v = E_pos){
+			translate(v = [0, -15, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=16, center=true);
+			translate(v = [0, 15, 3.5]) cylinder(h = 7, r=m3_nut_diameter, $fn=16, center=true);
+}
 		//Niceties
-		translate(v = [0, 20, 0]) cylinder(h = 5, r=20, $fn=6, center=false);
+		translate(v = [0, -20, 0]) cylinder(h = 5, r=20, $fn=6, center=false);
 	}
 	union(){
 		//Hotend hole and mounting holes
 		translate(v = E_pos){
 			//Hotend hole
-			cylinder(h = 20, r=20, $fn=18, center=true);
-			translate(v = [12, 0, -1]) rotate(a=[0,0,30]) cylinder(h = 7, r=12, $fn=6, center=false);
+			//cylinder(h = 20, r=20, $fn=18, center=true);
+			translate(v = [-12, 0, -1]) rotate(a=[0,0,30]) cylinder(h = 7, r=11.5, $fn=6, center=false);
 			//Extruder mounting holes
 			rotate(a=[0,0,22]) mountingholes();
 			rotate(a=[0,0,-22]) mountingholes();
 			rotate(a=[0,0,0]) mountingholes();
+
+minkowski()
+{
+	cube(size = [29-5,16-5,20], center = true);
+	cylinder(r=5,h=1);
+}
+translate(v = [0, -15, -1]) polyhole(m3_diameter,10);
+translate(v = [0, 15, -1]) polyhole(m3_diameter,10);
+
+		translate(v = [0, -15, -2]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [0, 15, -2]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
 		}
 
 		//Belt clamp holes intrusion hex and hole
-		translate(v = [25, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [25, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
-		translate(v = [43, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [43, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
-		translate(v = [25, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [25, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
-		translate(v = [43, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
-		translate(v = [43, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [30, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [30, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [48, -18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [48, -18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [30, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [30, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
+		translate(v = [48, 18, 2]) cylinder(h = 10, r=m3_diameter/2, $fn=9, center=true);
+		translate(v = [48, 18, 9]) cylinder(h = 10, r=m3_nut_diameter/2, $fn=6, center=true);
 	
 
 		//Fan holder holes
@@ -94,9 +108,9 @@ difference(){
 		translate(v = [-28, 20, 4.5]) rotate(a=[0,90,0]) cylinder(h = 20, r=3/2, $fn=10, center=true);
 
 		//Niceties
-		translate(v = [0, -40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
-		}
+		translate(v = [0, 40, -1]) cylinder(h = 7, r=15, $fn=6, center=false);
 	}
+}
 }
 
 xcarriage();
