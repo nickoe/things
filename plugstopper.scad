@@ -1,0 +1,10 @@
+difference(){
+	union(){
+		cube([13,7.5,10]);
+		translate([-1,-1,0])cube([15,9.5,2]);
+	}
+	union(){
+		translate([1.8,3,3])cube([4.5,2.5,10]);
+		translate([8.5,1.5,3])cube([2.5,4.5,10]);
+	}
+}
